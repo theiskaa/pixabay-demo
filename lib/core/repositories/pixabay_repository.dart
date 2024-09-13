@@ -10,5 +10,5 @@ abstract class PixabayRepository {
   /// Returns a tuple with:
   /// - A list of [PixabayImageModel] if the request is successful,
   /// - An [Exception] in case of an error.
-  Future<(List<PixabayImageModel>?, Exception?)> getImages({int page = 1, int perPage = 20});
+  Future<(List<PixabayImageModel>?, Exception?)> getImages({int page = 1, int perPage = 10});
 }

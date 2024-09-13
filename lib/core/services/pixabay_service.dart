@@ -9,7 +9,7 @@ class PixabayService implements PixabayRepository {
   final dio = Injection.instance.get<Dio>();
 
   @override
-  Future<(List<PixabayImageModel>?, Exception?)> getImages({int page = 1, int perPage = 20}) async {
+  Future<(List<PixabayImageModel>?, Exception?)> getImages({int page = 1, int perPage = 10}) async {
     try {
       final response = await dio.get(
         '/api/',

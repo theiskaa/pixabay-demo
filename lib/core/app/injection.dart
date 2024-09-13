@@ -2,7 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pixabay_demo/core/app/api.dart';
 import 'package:pixabay_demo/core/app/intl.dart';
+import 'package:pixabay_demo/core/repositories/pixabay_repository.dart';
 import 'package:pixabay_demo/core/repositories/user_repository.dart';
+import 'package:pixabay_demo/core/services/pixabay_service.dart';
 import 'package:pixabay_demo/core/services/user_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -32,5 +34,6 @@ class Injection {
     instance.registerSingleton<SharedPreferences>(localInstance);
 
     instance.registerLazySingleton<UserRepository>(() => UserService());
+    instance.registerLazySingleton<PixabayRepository>(() => PixabayService());
   }
 }
