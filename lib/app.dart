@@ -5,6 +5,7 @@ import 'package:pixabay_demo/core/app/router.dart';
 import 'package:pixabay_demo/core/state/app/app_cubit.dart';
 import 'package:pixabay_demo/core/state/user/user_cubit.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:pixabay_demo/view/widgets/colors.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -29,6 +30,7 @@ class App extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: context.intl.supportedLocales,
+          theme: ThemeData(primaryColor: AppColors.baseBlue),
         );
       }),
     );
