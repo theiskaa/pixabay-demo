@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:pixabay_demo/core/app/api.dart';
 import 'package:pixabay_demo/core/repositories/user_repository.dart';
 import 'package:pixabay_demo/core/services/user_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// A class responsible for dependency injection in the application.
 ///
@@ -11,7 +12,7 @@ import 'package:pixabay_demo/core/services/user_service.dart';
 /// like the API client and repositories are created and shared properly.
 class Injection {
   /// The instance of `GetIt` used for dependency injection.
-  static final getinstance = GetIt.instance;
+  static final instance = GetIt.instance;
 
   /// Constructor for the `Injection` class. This is const, meaning that the
   /// class is immutable and can be instantiated multiple times without side effects.
@@ -28,13 +29,16 @@ class Injection {
   /// ```dart
   /// await Injection.initInjections();
   /// ```
-  static void initInjections() {
+  static Future<void> initInjections() async {
     // Registers a singleton instance of `Dio` for API communication.
     // This ensures that the same `Dio` instance is used throughout the app.
-    getinstance.registerSingleton<Dio>(dioinstance);
+    instance.registerSingleton<Dio>(dioinstance);
+
+    final localInstance = await SharedPreferences.getInstance();
+    instance.registerSingleton<SharedPreferences>(localInstance);
 
     // Registers a lazy singleton instance of `UserRepository`, which is implemented by `UserService`.
     // The `UserService` will only be created when it is first needed.
-    getinstance.registerLazySingleton<UserRepository>(() => UserService());
+    instance.registerLazySingleton<UserRepository>(() => UserService());
   }
 }

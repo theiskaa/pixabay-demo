@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pixabay_demo/app.dart';
 import 'package:pixabay_demo/core/app/injection.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  Injection.initInjections();
+  await Injection.initInjections();
 
   runApp(const App());
 }
