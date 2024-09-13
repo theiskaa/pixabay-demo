@@ -1,15 +1,19 @@
 import 'package:dio/dio.dart';
 
+// The base URL for the Pixabay API.
+const baseUrl = 'https://pixabay.com/api';
+
+/// Query parameters that will be included in every request.
+/// TODO: Retrieve the API key from environment variables to improve security.
+const baseQueryParams = {
+  'key': '45961239-09505b101c655041c4df88c2c',
+};
+
 /// BaseOptions for the Dio instance, which includes the base URL for the Pixabay API,
 /// query parameters like the API key, and timeouts for connecting and receiving data.
 final options = BaseOptions(
-  baseUrl: 'https://pixabay.com/api', // The base URL for the Pixabay API.
-
-  /// Query parameters that will be included in every request.
-  /// TODO: Retrieve the API key from environment variables to improve security.
-  queryParameters: {
-    'key': '45961239-09505b101c655041c4df88c2c',
-  },
+  baseUrl: baseUrl,
+  queryParameters: baseQueryParams,
 
   /// The timeout duration for connecting to the API.
   /// If the connection takes longer than 5 seconds, it will timeout.

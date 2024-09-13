@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
+import 'package:pixabay_demo/core/app/api.dart';
 import 'package:pixabay_demo/core/app/injection.dart';
 import 'package:pixabay_demo/core/models/user.dart';
 import 'package:pixabay_demo/core/repositories/user_repository.dart';
@@ -35,18 +36,19 @@ class UserService implements UserRepository {
   /// - An [Exception] if an error occurs during the login process.
   @override
   Future<(UserModel?, Exception?)> login(String email, String password) async {
+    final data = {"email": email, "password": password};
+
     // Mock response setup for testing purposes.
     final dioAdapter = DioAdapter(dio: dio);
     dioAdapter.onPost(
       '/login',
+      data: data,
+      queryParameters: baseQueryParams,
       (server) => server.reply(200, null, delay: const Duration(seconds: 1)),
     );
 
     try {
-      final response = await dio.post('/login', data: {
-        "email": email,
-        "password": password,
-      });
+      final response = await dio.post('/login', data: data);
 
       if (response.statusCode != 200) {
         return (
@@ -79,20 +81,19 @@ class UserService implements UserRepository {
   /// - An [Exception] if an error occurs during the registration process.
   @override
   Future<(UserModel?, Exception?)> register(String email, String password, int age) async {
+    final data = {"email": email, "password": password, "age": age};
+
     // Mock response setup for testing purposes.
     final dioAdapter = DioAdapter(dio: dio);
     dioAdapter.onPost(
       '/register',
+      data: data,
+      queryParameters: baseQueryParams,
       (server) => server.reply(200, null, delay: const Duration(seconds: 1)),
     );
 
     try {
-      final response = await dio.post('/register', data: {
-        "email": email,
-        "password": password,
-        "age": age,
-      });
-
+      final response = await dio.post('/register', data: data);
       if (response.statusCode != 200) {
         return (
           null,

@@ -17,7 +17,7 @@ class UserModel {
     return UserModel(
       email: data['email'].toString(),
       password: data['password'].toString(),
-      age: data['int'],
+      age: data['age'],
     );
   }
 }
