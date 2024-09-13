@@ -34,6 +34,7 @@ extension IntlExtension on BuildContext {
 
 const languages = [
   Locale('en', 'US'),
+  Locale('ka', 'GE'),
 ];
 
 /// Internationalization (i18n) class for the the whole application

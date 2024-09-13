@@ -19,6 +19,16 @@
     "error.field.invalid-email": "The entered email format is invalid",
     "error.field.invalid-password": "The entered password is too weak. Please use a password with at least 6 characters and at most 12 characters",
     "error.field.invalid-age": "The entered age does not meet our policy. You must be at least 18 years old and no older than 99 years old",
-     
-    "card.info.likes": "Likes"
+
+    "card.section.photo-details": "Photo Details",
+    "card.section.author-stats": "Author & Stats",
+
+    "card.info.size": "Size",
+    "card.info.type": "Type",
+    "card.info.tags": "Tags",
+    "card.info.author": "Author",
+    "card.info.views": "Views",
+    "card.info.likes": "Likes",
+    "card.info.comments": "Comments",
+    "card.info.downloads": "Downloads"
 }

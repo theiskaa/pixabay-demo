@@ -1,0 +1,34 @@
+{
+    "app.welcome-back": "მოხარული ვართ თქვენი დაბრუნებით",
+    "app.signin-to": "შედით Pixabay-ში",
+
+    "auth.field.email": "ელ-ფოსტა",
+    "auth.field.email.hint": "შეიყვანეთ თქვენი ელ.ფოსტა",
+    "auth.field.password": "პაროლი",
+    "auth.field.password.hint": "შეიყვანეთ თქვენი პაროლი",
+    "auth.field.age": "ასაკი",
+    "auth.field.age.hint": "შეიყვანეთ თქვენი ასაკი",
+
+    "auth.button.signin": "შესვლა",
+    "auth.button.register": "რეგისტრაცია",
+    "auth.button.logout": "გამოსვლა",
+
+    "auth.ask.already-registered": "უკვე რეგისტრირებული ხართ?",
+    "auth.ask.do-not-have-account": "არ გაქვთ ანგარიში?",
+
+    "error.field.invalid-email": "შეყვანილი ელ-ფოსტის ფორმატი არასწორია",
+    "error.field.invalid-password": "შეყვანილი პაროლი ძალიან სუსტია. გთხოვთ გამოიყენოთ მინიმუმ 6 და მაქსიმუმ 12 სიმბოლოს პაროლი",
+    "error.field.invalid-age": "შეყვანილი ასაკი არ შეესაბამება ჩვენს პოლიტიკას. თქვენ უნდა იყოთ მინიმუმ 18 წლის და არ უნდა აჭარბებდეთ 99 წელს",
+
+    "card.section.photo-details": "ფოტოს დეტალები",
+    "card.section.author-stats": "ავტორი & სტატისტიკა",
+
+    "card.info.size": "ზომა",
+    "card.info.type": "ტიპი",
+    "card.info.tags": "ტეგები",
+    "card.info.author": "ავტორი",
+    "card.info.views": "ნახვები",
+    "card.info.likes": "მოწონებები",
+    "card.info.comments": "კომენტარები",
+    "card.info.downloads": "გადმოწერები"
+}

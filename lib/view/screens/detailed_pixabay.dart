@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pixabay_demo/core/app/intl.dart';
 import 'package:pixabay_demo/core/models/pixabay_image.dart';
 import 'package:pixabay_demo/view/widgets/colors.dart';
 
@@ -17,14 +18,14 @@ class _DetailedPixabayState extends State<DetailedPixabay> {
 
   @override
   Widget build(BuildContext context) {
-    Map<int, Widget> segments = const {
+    Map<int, Widget> segments = {
       0: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8),
-        child: Text('Photo Details'),
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Text(context.fmt('card.section.photo-details')),
       ),
       1: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8),
-        child: Text('Author & Stats'),
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Text(context.fmt('card.section.author-stats')),
       ),
     };
 
@@ -73,7 +74,6 @@ class _DetailedPixabayState extends State<DetailedPixabay> {
   }
 }
 
-// Section 1: Photo Details
 class PhotoDetailsSection extends StatelessWidget {
   final PixabayImageModel image;
   const PhotoDetailsSection({super.key, required this.image});
@@ -96,7 +96,7 @@ class PhotoDetailsSection extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: 'Size: ', style: style),
+                    TextSpan(text: '${context.fmt('card.info.size')}: ', style: style),
                     TextSpan(text: '${image.imageSize} bytes', style: boldStyle),
                   ],
                 ),
@@ -111,7 +111,7 @@ class PhotoDetailsSection extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: 'Type: ', style: style),
+                    TextSpan(text: '${context.fmt('card.info.type')}: ', style: style),
                     TextSpan(text: image.type, style: boldStyle),
                   ],
                 ),
@@ -126,7 +126,7 @@ class PhotoDetailsSection extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: 'Tags: ', style: style),
+                    TextSpan(text: '${context.fmt('card.info.tags')}: ', style: style),
                     TextSpan(text: image.tags, style: boldStyle),
                   ],
                 ),
@@ -139,7 +139,6 @@ class PhotoDetailsSection extends StatelessWidget {
   }
 }
 
-// Section 2: Author and statistics details
 class AuthorStatsSection extends StatelessWidget {
   final PixabayImageModel image;
   const AuthorStatsSection({super.key, required this.image});
@@ -162,7 +161,7 @@ class AuthorStatsSection extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: 'Author: ', style: style),
+                    TextSpan(text: '${context.fmt('card.info.author')}: ', style: style),
                     TextSpan(text: image.user, style: boldStyle),
                   ],
                 ),
@@ -177,7 +176,7 @@ class AuthorStatsSection extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: 'Views: ', style: style),
+                    TextSpan(text: '${context.fmt('card.info.views')}: ', style: style),
                     TextSpan(text: '${image.views}', style: boldStyle),
                   ],
                 ),
@@ -192,7 +191,7 @@ class AuthorStatsSection extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: 'Likes: ', style: style),
+                    TextSpan(text: '${context.fmt('card.info.likes')}: ', style: style),
                     TextSpan(text: '${image.likes}', style: boldStyle),
                   ],
                 ),
@@ -207,7 +206,7 @@ class AuthorStatsSection extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: 'Comments: ', style: style),
+                    TextSpan(text: '${context.fmt('card.info.comments')}: ', style: style),
                     TextSpan(text: '${image.comments}', style: boldStyle),
                   ],
                 ),
@@ -222,7 +221,7 @@ class AuthorStatsSection extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: 'Downloads: ', style: style),
+                    TextSpan(text: '${context.fmt('card.info.downloads')}: ', style: style),
                     TextSpan(text: '${image.downloads}', style: boldStyle),
                   ],
                 ),

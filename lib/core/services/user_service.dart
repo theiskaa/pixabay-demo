@@ -19,7 +19,6 @@ class UserService implements UserRepository {
   /// The key used to store user data in local storage.
   static const String key = 'user';
 
-  final dio = Injection.instance.get<Dio>();
   final local = Injection.instance.get<SharedPreferences>();
 
   /// Logs in a user using the provided [email] and [password].
@@ -39,6 +38,7 @@ class UserService implements UserRepository {
     final data = {"email": email, "password": password};
 
     // Mock response setup for testing purposes.
+    final dio = Dio();
     final dioAdapter = DioAdapter(dio: dio);
     dioAdapter.onPost(
       '/login',
@@ -48,7 +48,7 @@ class UserService implements UserRepository {
     );
 
     try {
-      final response = await dio.post('/login', data: data);
+      final response = await dio.post('/login', data: data, queryParameters: baseQueryParams);
 
       if (response.statusCode != 200) {
         return (
@@ -85,6 +85,7 @@ class UserService implements UserRepository {
     final data = {"email": email, "password": password, "age": age};
 
     // Mock response setup for testing purposes.
+    final dio = Dio();
     final dioAdapter = DioAdapter(dio: dio);
     dioAdapter.onPost(
       '/register',
@@ -94,7 +95,7 @@ class UserService implements UserRepository {
     );
 
     try {
-      final response = await dio.post('/register', data: data);
+      final response = await dio.post('/register', data: data, queryParameters: baseQueryParams);
       if (response.statusCode != 200) {
         return (
           null,

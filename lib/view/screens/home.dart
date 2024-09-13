@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pixabay_demo/core/state/pixabay/pixabay_cubit.dart';
 import 'package:pixabay_demo/core/state/pixabay/pixabay_state.dart';
 import 'package:pixabay_demo/core/state/user/user_cubit.dart';
+import 'package:pixabay_demo/view/widgets/cards/langauge_switcher.dart';
 import 'package:pixabay_demo/view/widgets/colors.dart';
 import 'package:pixabay_demo/view/widgets/buttons/opacity_button.dart';
 import 'package:pixabay_demo/view/widgets/cards/pixabay_image_card.dart';
@@ -38,6 +39,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: const Text('Pixabay'),
         actions: [
+          const LanguageSwitcher(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: OpacityButton(

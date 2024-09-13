@@ -10,12 +10,9 @@ class Base extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UserCubit, UserState>(builder: (context, state) {
-      print('user: ${state.user}');
-      print('error: ${state.error}');
       if (state.user == null) {
         return const Login();
       }
-
       return const Home();
     });
   }

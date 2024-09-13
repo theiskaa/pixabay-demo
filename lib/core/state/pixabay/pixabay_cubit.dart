@@ -55,12 +55,6 @@ class PixabayCubit extends Cubit<PixabayState> {
     // Handle any errors that occur during the fetch
     if (error != null) {
       emit(state.copyWith(error: (event, error.toString()), loading: (event, false)));
-
-      // Brief delay before resetting the error state
-      await Future.delayed(resetDuration);
-
-      // Reset the error and stop loading
-      emit(state.copyWith(error: (event, null), loading: (event, false)));
       return;
     }
 

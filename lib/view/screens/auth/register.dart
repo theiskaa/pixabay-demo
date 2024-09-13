@@ -7,6 +7,7 @@ import 'package:pixabay_demo/core/state/app/app_cubit.dart';
 import 'package:pixabay_demo/core/state/user/user_cubit.dart';
 import 'package:pixabay_demo/core/utils/utils.dart';
 import 'package:pixabay_demo/view/widgets/buttons/base_button.dart';
+import 'package:pixabay_demo/view/widgets/cards/langauge_switcher.dart';
 import 'package:pixabay_demo/view/widgets/colors.dart';
 import 'package:pixabay_demo/view/widgets/fields/primary_field.dart';
 
@@ -203,6 +204,7 @@ class _RegisterBody extends StatelessWidget {
                 ),
               ),
             ),
+            const Align(alignment: Alignment.center, child: LanguageSwitcher()),
           ],
         ),
       ),
