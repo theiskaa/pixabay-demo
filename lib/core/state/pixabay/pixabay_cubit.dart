@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pixabay_demo/core/app/injection.dart';
-import 'package:pixabay_demo/core/models/pixabay_image.dart';
 import 'package:pixabay_demo/core/repositories/pixabay_repository.dart';
 import 'package:pixabay_demo/core/state/pixabay/pixabay_state.dart';
 
@@ -34,19 +33,23 @@ class PixabayCubit extends Cubit<PixabayState> {
   ///
   /// Parameters:
   /// - [perPage]: The number of images to fetch per page (default is 10).
-  Future<List<PixabayImageModel>> fetch({
+  Future<void> fetch({
     int perPage = 10,
   }) async {
+    if (state.loading[PixabayStateEvent.fetchMore] == true) return;
+
     // Determine the event type (initial fetch or fetch more images)
     final event = state.images.isEmpty ? PixabayStateEvent.fetch : PixabayStateEvent.fetchMore;
 
     // Emit the loading state with the corresponding event
     emit(state.copyWith(loading: (event, true)));
 
+    final page = state.images.isEmpty ? 1 : (state.images.length / perPage).round();
+
     // Fetch images from the service
     final (images, error) = await service.getImages(
       perPage: perPage,
-      page: state.images.isEmpty ? 1 : (state.images.length / perPage).round(),
+      page: page,
     );
 
     // Handle any errors that occur during the fetch
@@ -58,12 +61,10 @@ class PixabayCubit extends Cubit<PixabayState> {
 
       // Reset the error and stop loading
       emit(state.copyWith(error: (event, null), loading: (event, false)));
-      return [];
+      return;
     }
 
-    // Add new images to the state and stop loading
     final stateImages = [...state.images, ...images!];
     emit(state.copyWith(images: stateImages, loading: (event, false), error: (event, null)));
-    return stateImages;
   }
 }
