@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 // The base URL for the Pixabay API.
-const baseUrl = 'https://pixabay.com/api';
+const baseUrl = 'https://pixabay.com/';
 
 /// Query parameters that will be included in every request.
 /// TODO: Retrieve the API key from environment variables to improve security.
