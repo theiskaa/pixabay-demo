@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pixabay_demo/core/app/api.dart';
+import 'package:pixabay_demo/core/app/intl.dart';
 import 'package:pixabay_demo/core/repositories/user_repository.dart';
 import 'package:pixabay_demo/core/services/user_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,21 +25,12 @@ class Injection {
   /// the `Dio` instance for network requests and the `UserRepository` for user-related operations.
   /// It uses lazy singleton registration to ensure that the services are only instantiated
   /// when needed (i.e., on the first use).
-  ///
-  /// Example usage:
-  /// ```dart
-  /// await Injection.initInjections();
-  /// ```
   static Future<void> initInjections() async {
-    // Registers a singleton instance of `Dio` for API communication.
-    // This ensures that the same `Dio` instance is used throughout the app.
     instance.registerSingleton<Dio>(dioinstance);
-
+    instance.registerSingleton<Intl>(Intl());
     final localInstance = await SharedPreferences.getInstance();
     instance.registerSingleton<SharedPreferences>(localInstance);
 
-    // Registers a lazy singleton instance of `UserRepository`, which is implemented by `UserService`.
-    // The `UserService` will only be created when it is first needed.
     instance.registerLazySingleton<UserRepository>(() => UserService());
   }
 }

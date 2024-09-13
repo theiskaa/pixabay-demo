@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pixabay_demo/core/app/intl.dart';
 import 'package:pixabay_demo/core/state/user/user_cubit.dart';
 
 class Login extends StatelessWidget {
@@ -19,7 +20,7 @@ class Login extends StatelessWidget {
           onPressed: () {
             context.read<UserCubit>().login(email: 'theiskaa@gmail.com', password: '1234567');
           },
-          child: const Text('Auth'),
+          child: Text(context.fmt('auth.login.title')),
         ),
       ),
     );
