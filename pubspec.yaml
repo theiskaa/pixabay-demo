@@ -1,5 +1,5 @@
 name: pixabay_demo
-description: "A new Flutter project."
+description: "A demonstration application that implements mocked authentication and image fetching from pixabay"
 publish_to: 'none'
 
 version: 1.0.0+1
