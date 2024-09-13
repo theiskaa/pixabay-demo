@@ -1,5 +1,21 @@
 {
-    "app.lang": "English",
+    "app.welcome-back": "Welcome Back",
+    "app.signin-to": "Sign in to Pixabay",
 
-    "auth.login.title": "Sign In"
+    "auth.field.email": "Email",
+    "auth.field.email.hint": "Enter your email",
+    "auth.field.password": "Password",
+    "auth.field.password.hint": "Enter your password",
+    "auth.field.age": "Age",
+    "auth.field.age.hint": "Enter your age",
+
+    "auth.button.signin": "Sign In",
+    "auth.button.register": "Register",
+
+    "auth.ask.already-registered": "Already registered?",
+    "auth.ask.do-not-have-account": "Don't have an account?",
+
+    "error.field.invalid-email": "The entered email format is invalid",
+    "error.field.invalid-password": "The entered password is too weak. Please use a password with at least 6 characters and at most 12 characters",
+    "error.field.invalid-age": "The entered age does not meet our policy. You must be at least 18 years old and no older than 99 years old"
 }

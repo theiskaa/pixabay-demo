@@ -15,6 +15,9 @@ class UserCubit extends Cubit<UserState> {
   /// Duration after which error states are reset.
   final resetDuration = const Duration(seconds: 1);
 
+  /// Duration between calls and responses for mocking.
+  final waitDuration = const Duration(seconds: 1);
+
   /// Constructor initializes the [UserCubit] with an initial state and
   /// calls the [load] method to load the user from local storage.
   UserCubit() : super(const UserState()) {
@@ -47,6 +50,7 @@ class UserCubit extends Cubit<UserState> {
   }) async {
     emit(state.copyWith(loading: (UserStateEvent.login, true)));
     final (user, error) = await service.login(email, password);
+    await Future.delayed(waitDuration);
     if (error != null) {
       emit(state.copyWith(
         error: (UserStateEvent.login, error.toString()),
@@ -85,6 +89,7 @@ class UserCubit extends Cubit<UserState> {
   }) async {
     emit(state.copyWith(loading: (UserStateEvent.register, true)));
     final (user, error) = await service.register(email, password, age);
+    await Future.delayed(waitDuration);
     if (error != null) {
       emit(state.copyWith(
         error: (UserStateEvent.register, error.toString()),

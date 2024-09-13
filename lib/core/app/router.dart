@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:pixabay_demo/view/base.dart';
+import 'package:pixabay_demo/view/screens/auth/register.dart';
 
 /// Base class for routing in this application.
 ///
@@ -18,6 +19,11 @@ class AppRouter {
     GoRoute(
       path: '/',
       builder: (context, state) => const Base(),
+    ),
+    GoRoute(
+      name: Register.route,
+      path: '/${Register.route}',
+      builder: (context, state) => const Register(),
     ),
   ];
 }

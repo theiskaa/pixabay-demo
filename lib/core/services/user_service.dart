@@ -54,7 +54,8 @@ class UserService implements UserRepository {
         return (
           null,
           Exception(
-              "Login failed: Invalid credentials or server error. Response: ${response.data}"),
+            "Login failed: Invalid credentials or server error. Response: ${response.data}",
+          ),
         );
       }
 
